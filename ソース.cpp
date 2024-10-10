@@ -53,6 +53,28 @@ size_t Size(Memory<T>& In) {
 
 #include"MemoryAllocator.h"
 
+template <class T>
+T* New(size_t N) {
+	return (T*)calloc(N, sizeof(T));
+}
+
+template <class T>
+bool Delete(T** M) {
+	free(*M);
+	(*M) = NULL;
+
+	return true;
+}
+
+int main() {
+	auto M = New<int>(1);
+
+	Delete(&M);
+
+	return 0;
+}
+
+/** /
 int main() {
 	auto A = ConstructMemroy<int>(16);
 
@@ -73,3 +95,4 @@ int main() {
 
 	_CrtDumpMemoryLeaks();//msvc only
 }
+/**/

@@ -1,4 +1,4 @@
-#include <iostream>
+/** /#include <iostream>
 #include <stdlib.h>
 #include <memory.h>
 #include <crtdbg.h>//msvc only
@@ -49,6 +49,9 @@ template <class T>
 size_t Size(Memory<T>& In) {
 	return In.L;
 }
+/**/
+
+#include"MemoryAllocator.h"
 
 int main() {
 	auto A = ConstructMemroy<int>(16);
@@ -60,7 +63,7 @@ int main() {
 	ReAllocateMemory<int>(A, 32);
 
 	for (size_t i = 0; i < Size(A); i++) {
-		(*Index(A, i)) = i;
+		(*Index(A, i)) = (int)i;
 	}
 	for (size_t i = 0; i < Size(A); i++) {
 		std::cout << *Index(A, i) << std::endl;

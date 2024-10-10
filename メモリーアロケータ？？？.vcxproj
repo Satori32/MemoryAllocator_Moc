@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MemoryAllocator.cpp" />
     <ClCompile Include="ソース.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MemoryAllocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

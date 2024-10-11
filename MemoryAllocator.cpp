@@ -9,6 +9,17 @@ Memory<T> ConstructMemroy(size_t N) {
 	return M;
 }
 
+template<class T>
+Memory<T> ConstructMemroyByArray(T* Te, size_t L) {
+	void* P = calloc(L, sizeof(T));
+	Memory<T> M;
+	M.M = (T*)P;
+	M.L = L;
+
+	memccpy(P, Te, L);
+	return M;
+}
+
 template <class T>
 bool Free(Memory<T>& In) {
 	free(In.M);
@@ -40,4 +51,17 @@ bool ReAllocateMemory(Memory<T>& In, size_t L) {
 template <class T>
 size_t Size(Memory<T>& In) {
 	return In.L;
+}
+
+template <class T>
+Memory<T> Duplicate(Memory<T>& In) {
+	void* P = calloc(In.L, sizeof(T));
+	Memory<T> M = { 0, };
+	M.M = (T*)P;
+	M.L = In.L;
+
+	memcpy(P, In.M, sizeof(T) * In.L);
+	if (P == NULL) { M.L = 0; }
+	else { memcpy(P, In.M, sizeof(T) * In.L); }
+	return M;
 }

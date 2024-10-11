@@ -28,6 +28,10 @@ Memory<T> ConstructMemroyByArray(T* Te,size_t L) {
 	memccpy(P, Te, L);
 	return M;
 }
+template<class T>
+bool IsNULL(Memory<T>& In) {
+	return In.M != NULL ? true : false;
+}
 template <class T>
 bool Free(Memory<T>& In) {
 	free(In.M);

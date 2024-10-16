@@ -1,7 +1,7 @@
 #include"MemoryAllocator.h"
 
 template<class T>
-Memory<T> ConstructMemroy(size_t N) {
+Memory<T> ConstructMemory(size_t N) {
 	void* P = calloc(N, sizeof(T));
 	Memory<T> M;
 	M.M = (T*)P;
@@ -10,7 +10,7 @@ Memory<T> ConstructMemroy(size_t N) {
 }
 
 template<class T>
-Memory<T> ConstructMemroyByArray(T* Te, size_t L) {
+Memory<T> ConstructMemoryByArray(T* Te, size_t L) {
 	void* P = calloc(L, sizeof(T));
 	Memory<T> M;
 	M.M = (T*)P;

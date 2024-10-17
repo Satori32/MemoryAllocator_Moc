@@ -20,6 +20,11 @@ Memory<T> ConstructMemoryByArray(T* Te, size_t L) {
 	return M;
 }
 
+template<class T>
+bool Free(const T& In) {
+	reurn false;
+}
+
 template <class T>
 bool Free(Memory<T>& In) {
 	free(In.M);

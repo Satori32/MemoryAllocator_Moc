@@ -27,6 +27,17 @@ bool Free(Memory<T>& In) {
 	In.L = 0;
 	return true;
 }
+template <class T>
+bool FreeII(Memory<T>& In) {
+	for (size_t i = 0; i < Size(In); i++) {
+		If(Index(In, i) == NULL) { return false; }
+		Free(*Index(In, i));
+	}
+	free(In.M);
+	In.M = NULL;
+	In.L = 0;
+	return true;
+}
 
 template <class T>
 T* Index(Memory<T>& In, size_t Pos) {

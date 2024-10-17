@@ -13,6 +13,7 @@ struct Memory {
 template <class T> Memory<T> ConstructMemory(size_t N);
 template <class T> Memory<T> ConstructMemoryByArray(T* Te, size_t L);
 template <class T> bool Free(Memory<T>& In);
+template <class T> bool FreeII(Memory<T>& In);
 template <class T> T* Index(Memory<T>& In, size_t Pos);
 template <class T> bool ReAllocateMemory(Memory<T>& In, size_t L);
 template <class T> size_t Size(Memory<T>& In);
